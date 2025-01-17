@@ -1,75 +1,74 @@
-Description of the project 
-First step: Write a command interpreter to manage your AirBnB objects.
-This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
+ This is a command line interpreter (CLI) for a simple object oriented storage system. The system  supports the create, operations read, are update, done delete in (CRUD) memory operations and on all classes the and commands their are instances. entered All through  the command line interface.
 
-Each task is linked and will help you to:
+This interpreter is  made using Python's cmd module and it interacts with the storage module which manages the objects. The  HBNBCommand class provides a great deal of commands that enable the user to interact with instances,  modify their attributes and manipulate the system’s state.
 
-put in place a parent class (called BaseModel) to take care of the initialization, serialization and deserialization of your future instances
-create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
-create the first abstracted storage engine of the project: File storage.
-create all unittests to validate all our classes and storage engine
-What’s a command interpreter?
-Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
+## Command Interpreter Description
 
-Create a new object (ex: a new User or a new Place)
-Retrieve an object from a file, a database etc…
-Do operations on objects (count, compute stats, etc…)
-Update attributes of an object
-Destroy an object
-Resources
-Read or watch:
+The command interpreter is a  user interface where one is able to interact with the program by entering commands. The commands that are available  are handled by the HBNBCommand class as it performs the necessary functions on the system.
 
-cmd module
-packages concept page
-uuid module
-datetime
-unittest module
-args/kwargs
-Python test cheatsheet
-Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+###  How to Start It
 
-General
-How to create a Python package
-How to create a command interpreter in Python using the cmd module
-What is Unit testing and how to implement it in a large project
-How to serialize and deserialize a Class
-How to write and read a JSON file
-How to manage datetime
-What is an UUID
-What is *args and how to use it
-What is **kwargs and how to use it
-How to handle named arguments in a function
-Requirements
-Python Scripts
-Allowed editors: vi, vim, emacs
-All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
-All your files should end with a new line
-The first line of all your files should be exactly #!/usr/bin/python3
-A README.md file, at the root of the folder of the project, is mandatory
-Your code should use the pycodestyle (version 2.7.*)
-All your files must be executable
-The length of your files will be tested using wc
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
-Python Unit Tests
-Allowed editors: vi, vim, emacs
-All your files should end with a new line
-All your test files should be inside a folder tests
-You have to use the unittest module
-All your test files should be python files (extension: .py)
-All your test files and folders should start by test_
-Your file organization in the tests folder should be the same as your project
-e.g., For models/base_model.py, unit tests must be in: tests/test_models/test_base_model.py
-e.g., For models/user.py, unit tests must be in: tests/test_models/test_user.py
-All your tests should be executed by using this command: python3 -m unittest discover tests
-You can also test file by file by using this command: python3 -m unittest tests/test_models/test_base_model.py
-All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
-All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
-All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-We strongly encourage you to work together on test cases, so that you don’t miss any edge case
-GitHub
-There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.
+1. Get the repository and save it to your local device.
+2.  Go to the directory that contains the project.
+3. Start the interpreter with this command:
+
+    ```bash
+  ./console.py
+   ```
+
+   This will launch the command-line interface with the  prompt `(hbnb)`.
+
+
+### How to Use It
+
+Once the interpreter starts, you can execute a series of commands. Each command is followed by a specific syntax and may require parameters. The commands include:
+
+create <class>: Creates a new instance of the specified class.
+show <class> <id>: Displays the string representation of the instance with the specified class and id.
+destroy <class> <id>: Removes the instance with the specified class and id.
+all <class>: Displays all instances of the specified class or all instances if no class is specified.
+update <class> <id> <attribute> <value>: Updates an attribute of the specified instance.
+Command Examples
+Creating an instance:
+
+bash
+Copy
+Edit
+(hbnb) create User
+This command creates a new User instance and prints its ID.
+
+### Displaying an instance:
+
+bash
+Copy
+Edit
+(hbnb) show User 1234-5678-91011
+This command shows the string representation of the User instance with the specified ID.
+
+### Destroying an instance:
+
+bash
+Copy
+Edit
+(hbnb) destroy User 1234-5678-91011
+This command deletes the User instance with the specified ID.
+
+### Listing all instances of a class:
+
+bash
+Copy
+Edit
+(hbnb) all User
+This command lists all User instances.
+
+### Updating an instance's attribute:
+
+bash
+Copy
+Edit
+(hbnb) update User 1234-5678-91011 name "John Doe"
+This command updates the name attribute of the User instance with the specified ID.
+
+Notes
+Ensure the storage system is correctly initialized before using commands.
+Class names must match exactly, and commands are case-sensitive.
